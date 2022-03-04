@@ -10,12 +10,21 @@ class SimpleLineChart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return charts.TimeSeriesChart(
-        _createMoodSampleData(mood),
-        defaultRenderer: charts.LineRendererConfig(includeArea: true),
-        animationDuration: Duration(milliseconds: 2500),
-        domainAxis: charts.EndPointsTimeAxisSpec(),
-        animate: animate);
+    return
+        charts.TimeSeriesChart(
+            _createMoodSampleData(mood),
+            defaultRenderer: charts.LineRendererConfig(includeArea: true),
+            animationDuration:const Duration(milliseconds: 2500),
+            domainAxis: const charts.EndPointsTimeAxisSpec(),
+            primaryMeasureAxis: charts.NumericAxisSpec(renderSpec: charts.SmallTickRendererSpec(
+              labelStyle:const charts.TextStyleSpec(
+                color: charts.MaterialPalette.transparent,
+              ),
+              lineStyle: charts.LineStyleSpec(
+                color: charts.MaterialPalette.black.lighter
+              )
+            ) ),
+            animate: animate);
   }
 
   static List<charts.Series<DailyMood, DateTime>> _createMoodSampleData(List<DailyMood> data) {
