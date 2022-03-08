@@ -2,7 +2,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:login/Models/disorders.dart';
 import 'package:login/Models/global_values.dart';
-import 'package:login/Widgets/Custome_disorder_listview.dart';
+import 'package:login/Widgets/DisOrders/Custome_disorder_listview.dart';
 
 class DisOrders extends StatelessWidget {
   DisOrders ({Key? key}) : super(key: key);
@@ -22,13 +22,17 @@ class DisOrders extends StatelessWidget {
           //  int i = ran.Nex
             String img = 'Assets/images/background/' + (index%10 + 1).toString()+ '.jpg';
 
-            return CustomListViewContainer(size: size, name: disorders[index].disOrder, img: img  , index: index);
+            return CustomListViewContainer(size: size,
+              name: disorders[index].disOrder, img: img  ,
+              index: index,isDisorder: true,);
           },
 
 
-          separatorBuilder: (BuildContext context,int index) => SizedBox(height: size.height/30 ,),
+          separatorBuilder: (BuildContext context,int index) =>
+              SizedBox(height: size.height/30 ,),
           itemCount: disorders.length,
-          padding: EdgeInsets.only(top: size.height/40,bottom: size.height/40,left: size.width/30,right: size.width/30),
+          padding: EdgeInsets.symmetric(vertical: size.height/40,
+              horizontal: size.width/30),
 
         )
     );
