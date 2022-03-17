@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 
 class CustomRadio extends StatefulWidget {
   final List<RadioModel> sampleData;
-
-  const CustomRadio({Key? key, required this.sampleData}) : super(key: key);
+  final double height;
+  final double width;
+  const CustomRadio({Key? key, required this.sampleData,
+    required this.height, required this.width}) : super(key: key);
   @override
   createState() {
     return CustomRadioState();
@@ -17,6 +19,7 @@ class CustomRadioState extends State<CustomRadio> {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
+        padding: EdgeInsets.zero,
         itemCount: widget.sampleData.length,
         itemBuilder: (BuildContext context, int index) {
           return InkWell(
@@ -41,17 +44,24 @@ class RadioItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 40,
+      height: 50,
       decoration:BoxDecoration(
         border: Border.all(
-            width: 1.0,
+            width: 2.0,
             color: _item.isSelected
                 ? Colors.blueAccent
                 : Colors.white),
-        borderRadius: const BorderRadius.all(const Radius.circular(2.0)),
+        borderRadius: const BorderRadius.all(const Radius.circular(5.0)),
 
       ) ,
-      margin: const EdgeInsets.all(15.0),
+      padding: EdgeInsets.symmetric(
+        vertical: 10,
+        horizontal:5
+      ),
+      margin: EdgeInsets.symmetric(
+          vertical: 5,
+          horizontal:5
+      ),
       child: Row(
         mainAxisSize: MainAxisSize.max,
         children: <Widget>[
@@ -61,9 +71,9 @@ class RadioItem extends StatelessWidget {
             child: Center(
               child: Text(_item.buttonText,
                   style: TextStyle(
-                      fontFamily: 'ConcertOne',
+                      fontFamily: 'Candal',
                       color: _item.isSelected ? Colors.white : Colors.black,
-                      fontWeight: FontWeight.bold,
+                      fontWeight: FontWeight.w400,
                       fontSize: 25.0)),
             ),
             decoration: BoxDecoration(
@@ -71,7 +81,7 @@ class RadioItem extends StatelessWidget {
                   ? Colors.blueAccent
                   : Colors.transparent,
               border: Border.all(
-                  width: 1.0,
+                  width: 2.0,
                   color: _item.isSelected
                       ? Colors.blueAccent
                       : Colors.grey),
@@ -79,8 +89,18 @@ class RadioItem extends StatelessWidget {
             ),
           ),
           Container(
-            margin: EdgeInsets.only(left: 10.0),
-            child: Text(_item.text),
+            padding: EdgeInsets.only(
+                left: 10.0,
+            //  bottom: 10
+            ),
+            child: Text(_item.text,
+                style: TextStyle(
+                fontFamily: 'PoiretOne',
+                fontWeight: FontWeight.bold,
+                color: _item.isSelected ? Colors.blueAccent : Colors.grey[700],
+                 fontSize: 18),
+              softWrap: true,
+            ),
           )
         ],
       ),

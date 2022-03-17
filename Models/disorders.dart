@@ -41,11 +41,11 @@ class SymptomQuestion{
 final disorders = [
   DisOrder(1, "Stress", [1,2,3]),
   DisOrder(2, "Anxiety", [4]),
-  DisOrder(3, "UnOfficial", [4]),
+  DisOrder(3, "Unofficial", [4]),
 
-  DisOrder(4, "Attentive DisOrder", [4]),
-  DisOrder(5, "HyperActivity DisOrder", [4]),
-  DisOrder(6, "UnOfficial DisOrder", [4]),
+  DisOrder(4, "Attentive Disorder", [4]),
+  DisOrder(5, "HyperActivity Disorder", [4]),
+  DisOrder(6, "Unofficial Disorder", [4]),
 ];
 
 
@@ -209,6 +209,5 @@ final questionString = [
   'Over the last 2 weeks, how often have you having trouble relaxing?',
 'Over the last 2 weeks, how often have you been so restless that it\'s hard to sit still',
 'Over the last 2 weeks, how often have you been becoming easily annoyed or Irritable',
-  'Over the last 2 weeks, how often have you been feeling afraid as if something awful might happen?'
-      'Over the last 2 weeks, how often have you been feeling afraid as if something awful might happen?'
+  'Over the last 2 weeks, how often have you been feeling afraid as if something awful might happen?''Over the last 2 weeks, how often have you been feeling afraid as if something awful might happen?'
 ];

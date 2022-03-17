@@ -7,7 +7,28 @@ class SimpleScatterPlotChart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return new charts.ScatterPlotChart(_createSampleData(), animate: true);
+    return new charts.ScatterPlotChart(
+        _createSampleData(),
+        domainAxis:  charts.NumericAxisSpec(renderSpec: charts.GridlineRendererSpec(
+            labelStyle:const charts.TextStyleSpec(
+              color: charts.MaterialPalette.white,
+            ),
+            lineStyle: charts.LineStyleSpec(
+                color: charts.MaterialPalette.white
+            )
+        )
+        ),
+        primaryMeasureAxis:  charts.NumericAxisSpec(renderSpec: charts.GridlineRendererSpec(
+            labelStyle:const charts.TextStyleSpec(
+              color: charts.MaterialPalette.white,
+            ),
+            lineStyle: charts.LineStyleSpec(
+                color: charts.MaterialPalette.white
+            )
+        )
+        ),
+        animate: true
+    );
   }
 
   /// Create one series with sample hard coded data.

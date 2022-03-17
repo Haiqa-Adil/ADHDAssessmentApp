@@ -1,11 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:login/Screens/naviation_screen/home_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../Widgets/CustomClipper.dart';
 import '../Widgets/Login/Role.dart';
 import '../Widgets/Login/TextBox.dart';
+import '../Widgets/navigation_bar.dart';
 
-class Test  extends StatelessWidget {
-  const Test({Key? key}) : super(key: key);
+class Login  extends StatefulWidget {
+  Login({Key? key}) : super(key: key);
+
+  @override
+  State<Login> createState() => _LoginState();
+}
+
+class _LoginState extends State<Login> {
+  bool isChecked = false;
 
   @override
   Widget build(BuildContext context) {
@@ -69,11 +80,12 @@ class Test  extends StatelessWidget {
                         ),
                       ),
                       SizedBox(
-                          height:size.height/17.5),
+                          height:size.height/18.5),
                       Align(
                         alignment: Alignment.centerLeft,
                         child: Padding(
-                          padding: const EdgeInsets.all(16.0),
+                          padding: const EdgeInsets.only(
+                              left: 16.0 , right: 16 , bottom: 36),
                           child: Card(
                             elevation: 5,
                             color: Colors.transparent,
@@ -115,8 +127,52 @@ class Test  extends StatelessWidget {
 
                       CustomText(icon: Icons.key, hintText: 'Password', isObscure: true),
                       SizedBox(
+                          height:size.height/90),
+                      Row(
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.only(left:  size.height * 0.03),
+                            child: Checkbox(
+                                value: isChecked,
+                                onChanged: (val){
+                                  setState((){
+                                    isChecked = !isChecked;
+                                  });
+                                },
+                              activeColor: Colors.white,
+                              autofocus: true,
+                              checkColor: Color(0xfffcbacb),
+                              hoverColor: Colors.white,
+                              tristate: true,
+                              fillColor: MaterialStateProperty.resolveWith((states) => Colors.white),
+                            ),
+                          ),
+                          Text(
+                            'Remember me',
+                            style: TextStyle(
+                                fontFamily: 'Ubuntu',
+                                fontSize: size.height/50,
+                                color: Colors.white
+                            ),
+                          )
+                        ],
+                      ),
+                      SizedBox(
                           height:size.height/40),
-                      TextButton(onPressed: (){},
+                      TextButton(
+                          onPressed: () async{
+                            if(isChecked){
+                              SharedPreferences prefs = await SharedPreferences.getInstance();
+                              prefs.setString('email', 'haiqaadil@gmail.com');
+
+                            }
+                            Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (BuildContext ctx) => Navigation_Bar()
+                                )
+                            );
+                          },
                           style: TextButton.styleFrom(
                             backgroundColor: Color(0x88fcbacb),
                             shadowColor: Colors.white,
@@ -134,32 +190,39 @@ class Test  extends StatelessWidget {
                               ),
 
                             ),
-                          )),
+                          )
+                      ),
                       SizedBox(
                           height:size.height/50),
                       const Expanded(child: SizedBox()),
                       Padding(
-                        padding: const EdgeInsets.only(bottom: 30.0),
-                        child: RichText(
-                          text:TextSpan(text:'New to adhd assessment app?',
-                              style: TextStyle(
-                                  fontSize: size.height/40,
-                                  fontFamily: 'PoiretOne',
-                                  fontWeight: FontWeight.w900,
-                                  color: Color(0xaaffffff)
-                              ),
-                              children: [
-                                TextSpan(
-                                  text: ' SignUp',
-                                  style: TextStyle(
-                                      fontSize: size.height/35,
-                                      fontFamily: 'Ubuntu',
-                                      fontWeight: FontWeight.w900,
-                                      color: Colors.white,
-                                      fontStyle: FontStyle.italic
-                                  ),
-                                )
-                              ]
+                        padding: const EdgeInsets.only(
+                            bottom: 35.0,
+                            left: 22,
+                          right: 22
+                        ),
+                        child: FittedBox(
+                          child: RichText(
+                            text:TextSpan(text:'New to adhd assessment app?',
+                                style: TextStyle(
+                                    fontSize: size.height/40,
+                                    fontFamily: 'PoiretOne',
+                                    fontWeight: FontWeight.w900,
+                                    color: Color(0xaaffffff)
+                                ),
+                                children: [
+                                  TextSpan(
+                                    text: ' SignUp',
+                                    style: TextStyle(
+                                        fontSize: size.height/35,
+                                        fontFamily: 'Ubuntu',
+                                        fontWeight: FontWeight.w900,
+                                        color: Colors.white,
+                                        fontStyle: FontStyle.italic
+                                    ),
+                                  )
+                                ]
+                            ),
                           ),
                         ),
                       ),

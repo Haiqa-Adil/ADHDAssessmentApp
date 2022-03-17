@@ -15,15 +15,26 @@ class SimpleLineChart extends StatelessWidget {
             _createMoodSampleData(mood),
             defaultRenderer: charts.LineRendererConfig(includeArea: true),
             animationDuration:const Duration(milliseconds: 2500),
-            domainAxis: const charts.EndPointsTimeAxisSpec(),
-            primaryMeasureAxis: charts.NumericAxisSpec(renderSpec: charts.SmallTickRendererSpec(
+            domainAxis: const charts.EndPointsTimeAxisSpec(
+              renderSpec: charts.SmallTickRendererSpec(
+                  lineStyle: charts.LineStyleSpec(
+                      color: charts.MaterialPalette.white
+                  ),
+                labelStyle:const charts.TextStyleSpec(
+                  color: charts.MaterialPalette.white,
+                ),
+              )
+            ),
+            primaryMeasureAxis: charts.NumericAxisSpec(renderSpec: charts.GridlineRendererSpec(
               labelStyle:const charts.TextStyleSpec(
                 color: charts.MaterialPalette.transparent,
               ),
               lineStyle: charts.LineStyleSpec(
-                color: charts.MaterialPalette.black.lighter
+                color: charts.MaterialPalette.white
               )
-            ) ),
+            )
+            ),
+
             animate: animate);
   }
 
@@ -35,8 +46,8 @@ class SimpleLineChart extends StatelessWidget {
         domainFn: (DailyMood mood ,_) => mood.date,
         measureFn: (DailyMood mood , _) => mood.mood,
 
-        colorFn: (_, __) => charts.MaterialPalette.pink.shadeDefault,
-        areaColorFn: (_, __) => charts.MaterialPalette.pink.shadeDefault.lighter,
+        colorFn: (_, __) => charts.MaterialPalette.white,
+       // areaColorFn: (_, __) => charts.MaterialPalette.pink.shadeDefault.lighter,
         data: data,
       ),
 

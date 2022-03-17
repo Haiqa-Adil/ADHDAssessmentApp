@@ -34,7 +34,9 @@ class CustomText extends StatelessWidget{
           isDense: true,
 
         ),
-
+        style: TextStyle(
+          color: Colors.white
+        ),
       ),
     );
   }

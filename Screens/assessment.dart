@@ -44,7 +44,7 @@ class Assessment extends StatelessWidget {
       body : Container(
         width: size.width,
         height: size.height,
-        color: colorCodes[sympId % 10].withOpacity(0.5),
+        color: colorCodes[sympId % 10].withOpacity(0.4),
         child: Align(
           alignment: Alignment.bottomCenter,
           child: Column(
@@ -75,7 +75,8 @@ class Assessment extends StatelessWidget {
                   aspectRatio: 0.72,
                   reverse: true,
                   initialPage: 0,
-                  enableInfiniteScroll: false
+                  enableInfiniteScroll: false,
+                  height: size.height * 0.7
                 ),
                 itemCount: questionair.length,
                 itemBuilder: (context , index , currentIndex) {
@@ -87,7 +88,7 @@ class Assessment extends StatelessWidget {
                   return Padding(
                   padding: EdgeInsets.symmetric(
                       vertical: size.height * 0.02,
-                      horizontal: size.width * 0.02
+                      horizontal: size.width * 0.01
                   ),
                   child: ClipRRect(
                     clipBehavior: Clip.hardEdge,
@@ -130,10 +131,14 @@ class Assessment extends StatelessWidget {
                                       padding: EdgeInsets.symmetric(
                                         vertical: size.height * 0.02
                                       ),
-                                      height: size.height * 0.4,
+                                      height: size.height * 0.5,
                                       child: Align(
                                           alignment: Alignment.topCenter,
-                                          child: CustomRadio(sampleData: radioItems,)
+                                          child: CustomRadio(
+                                            sampleData: radioItems,
+                                            height: size.height * 0.5,
+                                            width: size.width * 0.8,
+                                          )
                                       )
                                   ),
                                 ),
@@ -152,36 +157,5 @@ class Assessment extends StatelessWidget {
         )
       )
     );
-  }
-}
-
-
-class StackQuestions extends StatefulWidget{
-  final List<Questionair> questionair;
-
-
-
-
-  const StackQuestions({Key? key, required this.questionair}) : super(key: key);
-  @override
-  State<StackQuestions> createState() => _StackQuestionsState();
-}
-
-class _StackQuestionsState extends State<StackQuestions> {
-
-  @override
-  Widget build(BuildContext context) {
-    return
-      Stack(
-          children:[
-            ...widget.questionair.map((e) =>
-                GestureDetector(
-                    child: Container(
-
-                    )
-                )
-            )
-          ]
-      );
   }
 }
