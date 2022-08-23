@@ -29,7 +29,7 @@ class CustomText extends StatelessWidget{
 
           hintText: hintText,
           hintStyle:const TextStyle(
-              color: Colors.white
+              color: Colors.white60
           ),
           isDense: true,
 
@@ -37,6 +37,13 @@ class CustomText extends StatelessWidget{
         style: TextStyle(
           color: Colors.white
         ),
+        validator: (val){
+          if(val == null || val.isEmpty)
+            {
+              return 'Enter the ${hintText}';
+            }
+          return null;
+        },
       ),
     );
   }

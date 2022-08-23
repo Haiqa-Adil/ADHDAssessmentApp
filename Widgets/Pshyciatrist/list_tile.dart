@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:adhdassessmentapp/Screens/Consultants/ConsultantDetails.dart';
 
 class ListTileData extends StatelessWidget {
   const ListTileData({Key? key}) : super(key: key);
@@ -20,7 +21,10 @@ class ListTileData extends StatelessWidget {
             ),
           ),
           title:const Text(
-              'Haiqa Adil'
+              'Haiqa Adil' , style: TextStyle(
+            fontFamily: 'Roboto',
+
+          ),
           ),
           subtitle:const Padding(
             padding:  EdgeInsets.only(top: 7.0),
@@ -39,7 +43,11 @@ class ListTileData extends StatelessWidget {
 
 
           ),
+          onTap: (){
+            Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => ConsultantsDetails()));
 
+          },
         ),
       ),
     );

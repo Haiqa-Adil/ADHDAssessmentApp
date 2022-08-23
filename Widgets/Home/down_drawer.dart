@@ -47,6 +47,7 @@ class DownDrawer extends StatelessWidget {
                 text: 'Writing Activities',
                 textColor: Colors.blueGrey ,
                 shadowColor: Colors.blueGrey,
+                categoryName: "Journaling",
                 categories: [
                   'Mood Journaling',
                   'Story Sharing',
@@ -58,6 +59,7 @@ class DownDrawer extends StatelessWidget {
                 text: 'Reading Activities',
                 textColor: Colors.indigo.shade400 ,
                 shadowColor: Colors.indigoAccent.shade100,
+                categoryName: "Blogs",
                 categories: const [
                   'Inspiration',
                   'Heart Broken'
@@ -68,6 +70,7 @@ class DownDrawer extends StatelessWidget {
                 text: 'Remedies',
                 textColor: Colors.orangeAccent.shade200 ,
                 shadowColor: Colors.amber.shade200,
+                categoryName: "Remedies",
                 categories:const [
                   'Stress' ,
                   'Anxiety' ,

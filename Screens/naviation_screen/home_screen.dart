@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:login/Screens/Login.dart';
-import 'package:login/Widgets/Home/activities_tile.dart';
-import 'package:login/Widgets/Home/down_drawer.dart';
-import 'package:login/Widgets/Home/feelings.dart';
+import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
+import 'package:adhdassessmentapp/Screens/Login.dart';
+import 'package:adhdassessmentapp/Widgets/Home/activities_tile.dart';
+import 'package:adhdassessmentapp/Widgets/Home/down_drawer.dart';
+import 'package:adhdassessmentapp/Widgets/Home/feelings.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -36,7 +37,9 @@ class HomeScreen extends StatelessWidget {
                                     Icons.menu_rounded,
                                   color:const Color(0xfff1f1f1),
                                   size: size.height * 0.04,
-                                ), onPressed: () { },
+                                ), onPressed: () {
+                                  ZoomDrawer.of(context)!.toggle();
+                              },
                               ),
                             ),
                           ),
@@ -77,7 +80,7 @@ class HomeScreen extends StatelessWidget {
                             TextSpan(
                                 text: 'Hi,',
                                 style: TextStyle(
-                                  fontFamily: 'Aclonica',
+                                  fontFamily: 'Roboto',
                                     fontWeight: FontWeight.bold,
                                     fontSize: size.height * 0.035,
                                     color: Colors.white70
@@ -86,7 +89,7 @@ class HomeScreen extends StatelessWidget {
                                   TextSpan(
                                     text: 'Haiqa',
                                     style: TextStyle(
-                                      fontFamily: 'Aclonica',
+                                      fontFamily: 'Roboto',
                                         fontWeight: FontWeight.bold,
                                       //  fontStyle: FontStyle.italic,
                                         fontSize:  size.height * 0.04,

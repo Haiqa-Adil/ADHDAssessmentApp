@@ -1,7 +1,7 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:login/Screens/naviation_screen/Graphs.dart';
-import 'package:login/Screens/naviation_screen/pshychiatrist.dart';
+import 'package:adhdassessmentapp/Screens/naviation_screen/Graphs.dart';
+import 'package:adhdassessmentapp/Screens/naviation_screen/pshychiatrist.dart';
 
 import '';
 import '../Screens/naviation_screen/Disorder.dart';

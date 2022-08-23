@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:login/Widgets/Graphs/custom_tabbar.dart';
+import 'package:adhdassessmentapp/Widgets/Graphs/custom_tabbar.dart';
 
 class Graphs extends StatelessWidget {
   const Graphs({Key? key}) : super(key: key);

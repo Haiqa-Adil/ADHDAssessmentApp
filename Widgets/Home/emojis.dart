@@ -9,15 +9,17 @@ class Emoji extends StatefulWidget {
 }
 
 class _EmojiState extends State<Emoji> {
+  bool isCLicked = false;
+
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-
       child: Container(
         padding: const EdgeInsets.all(10.0) ,
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(10)),
-          color: Colors.white30,
+          color:  isCLicked ? Colors.white70 : Colors.white24,
         ),
         child: Text(widget.emoji
           ,style:const TextStyle(
@@ -28,7 +30,12 @@ class _EmojiState extends State<Emoji> {
         ),
       ),
       onTap: (){
-
+        setState(() {
+          if(isCLicked != null)
+            isCLicked = !isCLicked;
+          else
+            isCLicked = true;
+        });
       },
     );
   }

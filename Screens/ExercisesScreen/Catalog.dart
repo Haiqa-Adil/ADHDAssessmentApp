@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:login/Screens/ExercisesScreen/journal.dart';
+import 'package:adhdassessmentapp/Screens/ExercisesScreen/VideoPlayer.dart';
+import 'package:adhdassessmentapp/Screens/ExercisesScreen/blog.dart';
+import 'package:adhdassessmentapp/Screens/ExercisesScreen/journal.dart';
 
 import '../../Models/global_values.dart';
 
 class Catalog extends StatelessWidget {
-  const Catalog({Key? key, required this.categories}) : super(key: key);
-
+  const Catalog({Key? key, required this.categories, required this.name}) : super(key: key);
+  final String name;
   final List<String> categories;
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
-        title: Text('Catalog'),
+        title: Text(name),
         backgroundColor: Color(0xff28203e),
       ),
         body: Container(
@@ -42,11 +44,20 @@ class Catalog extends StatelessWidget {
                 InkWell(
                   splashColor: Color(0xff28203e),
                   onTap: (){
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => Journal()
-                    )
-                    );
-
+                    if(name == "Journaling") {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => Journal()));
+                    }
+                    else if(name == "Remedies")
+                      {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => ChewieDemo()));
+                      }
+                    else if( name == "Blogs"){
+                        Navigator.of(context).push(MaterialPageRoute(
+                          builder : (context) => Blogs()
+                        ));
+                    }
                   },
                   child: Card(
                     shape: RoundedRectangleBorder(

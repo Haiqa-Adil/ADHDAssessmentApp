@@ -35,15 +35,22 @@ class ConsultantNavigationBar extends StatelessWidget{
                     color: Color(0xff28203e),
                     borderRadius: BorderRadius.circular(10)
                 ),
-
-                child: Text(
-                  'Make an Appointment',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontFamily: 'Candal',
-                    fontSize: size.height * 0.025,
-                  ),
-
+                width: size.width * 0.8,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Make an Appointment',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontFamily: 'Candal',
+                        fontSize: size.height * 0.02,
+                      ),
+                    ),
+                    Icon(Icons.arrow_forward_ios_rounded ,
+                    size: size.height * 0.023,
+                    color: Colors.white,)
+                  ],
                 )
             ),
           )

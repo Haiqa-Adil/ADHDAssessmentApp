@@ -6,10 +6,17 @@ class CustomTab extends StatelessWidget{
   late String image;
   late String person;
   late Color color;
+  late bool isStudent;
+  late bool isSelected = false;
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return GestureDetector(
+      onTap: (){
+        setState(){
+          isSelected = true;
+        }
+      },
       child: Container(
         height: size.height/5.5,
         width: size.width/3.5,
